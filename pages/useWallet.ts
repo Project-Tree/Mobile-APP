@@ -21,22 +21,23 @@ export default function useWallet (): [providers.Web3Provider, string, Contract]
       return _provider
     }
     async function getMetamaskAccount(provider) {
-      const [selectedAccount] = await provider.request({method: 'eth_requestAccounts',});
+      const selectedAccount = await provider.request({method: 'eth_requestAccounts'});
       setMetamaskAccount(selectedAccount);
     }
     async function getAllContract(provider) {
+      const signer = new providers.Web3Provider(provider);
       const _tre = new Contract(
         contractAddress.TREToken,
         TokenArtifact.abi,
-        provider.getSigner(0)
+        signer.getSigner(0)
       );
       setTREContract(_tre);
     }
     
-    const provider = getProvider();
-    getMetamaskAccount(provider);
-    getAllContract(provider);
-
+    getProvider().then(provider => {
+      getMetamaskAccount(provider);
+      getAllContract(provider);
+    });
   }, [])
 
   return [provider, metamaskAccount, treContract]

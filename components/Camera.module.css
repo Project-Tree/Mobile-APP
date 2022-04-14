@@ -40,7 +40,6 @@
   bottom: 0;
   width: 100vw;
   height: 15vh;
-  line-height: 15vh;
   margin: auto;
   border-radius: 10px 10px 0 0;
   background-color: white;
@@ -49,8 +48,14 @@
 }
 
 .qrcodeString {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
   width: 80vw;
-  word-break: normal;
+  height: 10vh;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
 }
 
 @keyframes fadeInUp {

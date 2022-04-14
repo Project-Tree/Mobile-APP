@@ -11,18 +11,18 @@ const RadioButtonCheckedIcon = dynamic(
 const Camera = dynamic(() => import("../components/Camera"));
 
 export default function Index(): ReactElement {
-  const [provider, , tre] = useMetamask();
+  // const [provider, , tre] = useMetamask();
   const [isOpenCamera, openCamera, closeCamera] = useModal();
 
-  const swapETHToTRE = (ethToSwap: string) => async () => {
-    if (provider !== undefined) {
-      const signer = provider.getSigner();
-      signer.sendTransaction({
-        to: tre?.address,
-        value: parseEther(ethToSwap),
-      });
-    }
-  };
+  // const swapETHToTRE = (ethToSwap: string) => async () => {
+  //   if (provider !== undefined) {
+  //     const signer = provider.getSigner();
+  //     signer.sendTransaction({
+  //       to: tre?.address,
+  //       value: parseEther(ethToSwap),
+  //     });
+  //   }
+  // };
 
   // const purchaseProduct = (to: string, cost: number) => () => {
   //   tre?.transfer(to, cost);
@@ -34,7 +34,12 @@ export default function Index(): ReactElement {
         <div className={style.wallet}>
           내 지갑 <p>120 TRE</p>
         </div>
-        <div className={style.charge} onClick={swapETHToTRE("100")}>
+        <div
+          className={style.charge}
+          onClick={() => {
+            /*swapETHToTRE("100")*/
+          }}
+        >
           충전하기
         </div>
         <div className={style.usage}>사용내역</div>

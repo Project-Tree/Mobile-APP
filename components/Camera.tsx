@@ -72,7 +72,7 @@ const Camera: FC<Props> = ({ isOpen, close }) => {
       ></div>
       <div className={style.cameraBody} onClick={() => setIsOpenOverlay(false)}>
         <QrReader
-          constraints={{ facingMode: "user" }}
+          constraints={{ facingMode: { exact: "environment" } }}
           containerStyle={{ display: "none" }}
           onResult={(result, err) => {
             if (result) {

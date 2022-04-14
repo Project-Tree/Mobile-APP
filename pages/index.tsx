@@ -1,34 +1,26 @@
 import style from "./index.module.css";
 import useModal from "../hooks/useModal";
+import useWallet from "./useWallet";
 import { ReactElement } from "react/index";
 import { parseEther } from "ethers/lib/utils";
-// import useMetamask from "../hooks/useMetamask";
 
 import dynamic from "next/dynamic";
-import useWallet from "./useWallet";
 const RadioButtonCheckedIcon = dynamic(
   () => import("@mui/icons-material/RadioButtonChecked")
 );
 const Camera = dynamic(() => import("../components/Camera"));
 
 export default function Index(): ReactElement {
-  // const [provider, , tre] = useMetamask();
   const [provider, , tre] = useWallet();
   const [isOpenCamera, openCamera, closeCamera] = useModal();
 
   const swapETHToTRE = (ethToSwap: string) => async () => {
-    if (provider !== undefined) {
-      const signer = provider.getSigner();
-      signer.sendTransaction({
-        to: tre?.address,
-        value: parseEther(ethToSwap),
-      });
-    }
+    const signer = provider.getSigner();
+    signer.sendTransaction({
+      to: tre?.address,
+      value: parseEther(ethToSwap),
+    });
   };
-
-  // const purchaseProduct = (to: string, cost: number) => () => {
-  //   tre?.transfer(to, cost);
-  // };
 
   return (
     <div className={style.container}>
@@ -39,7 +31,7 @@ export default function Index(): ReactElement {
         <div
           className={style.charge}
           onClick={() => {
-            /*swapETHToTRE("100")*/
+            // /*swapETHToTRE("100")
           }}
         >
           충전하기

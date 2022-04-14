@@ -100,7 +100,7 @@ const Camera: FC<Props> = ({ isOpen, close }) => {
               window.open(qrcode, "Payment");
             }}
           >
-            {qrcode}
+            <div className={style.qrcodeString}>{qrcode}</div>
           </div>
         )}
       </div>

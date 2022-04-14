@@ -34,6 +34,9 @@
 }
 
 .bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   bottom: 0;
   width: 100vw;
   height: 15vh;
@@ -43,6 +46,11 @@
   background-color: white;
 
   animation: fadeInUp 1s;
+}
+
+.qrcodeString {
+  width: 80vw;
+  word-break: normal;
 }
 
 @keyframes fadeInUp {

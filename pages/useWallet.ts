@@ -15,7 +15,7 @@ export default function useWallet (): [providers.Web3Provider, string, Contract]
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const _provider = await detectEthereumProvider() as any;
       if(provider) {
-        setProvider(_provider)  
+        setProvider(new providers.Web3Provider(_provider))  
       }
 
       return _provider

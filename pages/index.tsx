@@ -1,8 +1,8 @@
-import { parseEther } from "ethers/lib/utils";
 import style from "./index.module.css";
-import useMetamask from "../hooks/useMetamask";
 import useModal from "../hooks/useModal";
 import { ReactElement } from "react/index";
+// import { parseEther } from "ethers/lib/utils";
+// import useMetamask from "../hooks/useMetamask";
 
 import dynamic from "next/dynamic";
 const RadioButtonCheckedIcon = dynamic(

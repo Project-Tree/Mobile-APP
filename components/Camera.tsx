@@ -22,7 +22,7 @@ const Camera: FC<Props> = ({ isOpen, close }) => {
       return;
     navigator.mediaDevices
       .getUserMedia({
-        video: { facingMode: "user", width: 400, height: 480 },
+        video: { facingMode: "environment", width: 400, height: 480 },
       })
       .then((stream: MediaStream) => {
         if (videoRef.current === null) return;

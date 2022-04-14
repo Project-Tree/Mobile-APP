@@ -31,7 +31,7 @@ export default function Index(): ReactElement {
         <div
           className={style.charge}
           onClick={() => {
-            // /*swapETHToTRE("100")
+            swapETHToTRE("100");
           }}
         >
           충전하기
